@@ -1,0 +1,15 @@
+<h1>Détails de l'annonce : {{ annonce.titre }}</h1>
+<p>Localisation : {{ annonce.localisation }}</p>
+<p>Catégorie : {{ annonce.get_category_display }}</p>
+<p>Prix : {{ annonce.prix }} DT</p>
+<p>Date : {{ annonce.date }}</p>
+<p>Nombre de chambres : {{ annonce.nombre_de_chambres }}</p>
+<p>Équipé : {{ annonce.equipe|yesno:"Oui,Non" }}</p>
+<p>Surface : {{ annonce.surface }} m²</p>
+<p>Description : {{ annonce.description }}</p>
+
+{% if annonce.images %}
+    <img src="{{ annonce.images.url }}" alt="Image de {{ annonce.titre }}">
+{% endif %}
+
+<a href="{% url 'annonce_list' %}">Retour à la liste</a>

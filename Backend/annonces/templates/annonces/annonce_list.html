@@ -1,0 +1,11 @@
+<h1>Liste des Annonces</h1>
+<a href="{% url 'create_annonce' %}">Créer une nouvelle annonce</a>
+<ul>
+    {% for annonce in annonces %}
+      <li>{{ annonce.titre }} - {{ annonce.prix }} - 
+        <a href="{% url 'update_annonce' annonce.pk %}">Modifier</a> |
+        <a href="{% url 'annonce_detail' annonce.pk %}">Détails</a> |
+        <a href="{% url 'delete_annonce' annonce.pk %}">Supprimer</a>
+      </li>
+    {% endfor %}
+</ul>

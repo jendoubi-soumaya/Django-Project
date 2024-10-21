@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.shortcuts import render, redirect
@@ -36,3 +36,8 @@ def delete_annonce(request, pk):
         annonce.delete()
         return redirect('annonce_list')
     return render(request, 'annonces/delete_annonce.html', {'annonce': annonce})
+
+
+def annonce_detail(request, pk):
+    annonce = get_object_or_404(Annonce, pk=pk)
+    return render(request, 'annonces/annonce_detail.html', {'annonce': annonce})
